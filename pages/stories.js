@@ -10,14 +10,14 @@ export default async function Stories(path) {
   const hasStories = stories.length > 0;
 
   view.innerHTML = `<div>
-  ${hasStories ? stories.map((story, i) => Story ({ ...story, index: i + 1, isFavorite: checkFavorite(favorites, story) })).join("") : "no stories" }
+  ${hasStories ? stories.map((story, i) => Story({ ...story, index: i + 1, isFavorite: checkFavorite(favorites, story) })).join("") : "no stories" }
   </div>`;
 
   document.querySelectorAll('.favorite').forEach(favoriteButton => {
     favoriteButton.addEventListener('click', async function() {
       const story = JSON.parse(this.dataset.story);
       const isFavorited = checkFavorite(favorites, story);
-      store.dispatch({ type: isFavorited ? 'REMOVE_FAVORITE' : 'ADD_FAVORITE', payload: { favorite: story } })
+      store.dispatch({ type: isFavorited ? "REMOVE_FAVORITE" : "ADD_FAVORITE", payload: { favorite: story } })
       // if (isFavorited) {
       //   store.dispatch({ type: "REMOVE_FAVORITE", payload: { favorite: story } })  
       // } else {

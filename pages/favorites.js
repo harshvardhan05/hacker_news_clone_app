@@ -13,6 +13,7 @@ export default function Favorites() {
         isFavorite: checkFavorite(favorites, story)
     })).join('') : "Add some favorites!"}
     </div>`
+    
     document.querySelectorAll('.favorite').forEach(favoriteButton => {
         favoriteButton.addEventListener('click', function() {
           const story = JSON.parse(this.dataset.story);  
