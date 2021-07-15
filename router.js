@@ -1,6 +1,8 @@
 import Stories from "./pages/stories.js";
+import Item from "./pages/item.js";
+import Favorites from "./pages/favorites.js";
 
-const router = new Navigo('/');
+const router = new Navigo('/' , { hash : true });
 // console.log(router);
 
 export default class RouterHandler {
@@ -14,7 +16,8 @@ export default class RouterHandler {
         { path: "/new", page: Stories },
         { path: "/ask", page: Stories },
         { path: "/show", page: Stories },
-        { path: "/favourites", page: Stories },
+        { path: "/favorites", page: Favorites },
+        { path: "/item", page: Item }
     ];
 
     routes.forEach(({ path, page }) => {
